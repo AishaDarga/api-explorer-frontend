@@ -1,3 +1,7 @@
+import { InfoSection, InfoCard } from '../../components/Info';
+import Globe32 from '@carbon/icons-react/lib/globe/32';
+import PersonFavorite32 from '@carbon/icons-react/lib/globe/32';
+import Application32 from '@carbon/icons-react/lib/application/32';
 import React from 'react';
 import {
   Breadcrumb,
@@ -30,9 +34,7 @@ const LandingPage = () => {
               <a href="/">Getting started</a>
             </BreadcrumbItem>
           </Breadcrumb>
-          <h1 className="landing-page__heading">
-            Design &amp; build with Carbon
-          </h1>
+          <h1 className="landing-page__heading">API Explorer V2.0</h1>
         </div>
       </div>
 
@@ -44,38 +46,48 @@ const LandingPage = () => {
                 <div className="bx--row landing-page__tab-content">
                   <div className="bx--col-md-4 bx--col-lg-7">
                     <h2 className="landing-page__subheading">
-                      What is Carbon?
+                      What is API Explorer V2.0?
                     </h2>
                     <p className="landing-page__p">
-                      Carbon is IBM’s open-source design system for digital
-                      products and experiences. With the IBM Design Language as
-                      its foundation, the system consists of working code,
-                      design tools and resources, human interface guidelines,
-                      and a vibrant community of contributors.
+                      IBM offers APIs to help you build a supply chain tailored
+                      for your business. For API documentation, look at the
+                      following API Explorer pages, and be sure to check out the
+                      full directory. Quickly detect potential disruptions and
+                      collaborate with colleagues and IBM Watson™ to resolve
+                      issues.
                     </p>
                     <Button>Learn more</Button>
                   </div>
                   <div className="bx--col-md-4 bx--offset-lg-1 bx--col-lg-8">
                     <img
                       className="landing-page__illo"
-                      src={`${process.env.PUBLIC_URL}/tab-illo.png`}
+                      src={`https://react-step-6--carbon-tutorial.netlify.com/tab-illo.png`}
                       alt="Carbon illustration"
                     />
                   </div>
                 </div>
               </div>
             </Tab>
-            <Tab {...props.tab} label="Design">
-              <div className="bx--grid bx--grid--no-gutter bx--grid--full-width">
+            <Tab {...props.tab} label="Add an API">
+              {/* <div className="bx--grid bx--grid--no-gutter bx--grid--full-width"> */}
                 <div className="bx--row landing-page__tab-content">
-                  <div className="bx--col-lg-16">
-                    Rapidly build beautiful and accessible experiences. The
-                    Carbon kit contains all resources you need to get started.
+                
+                <div class="bx--form-item">
+                  <strong class="bx--file--label">Upload a swagger.yml file</strong>
+                  <p class="bx--label-description">Only .yml file.</p>
+                  <div class="bx--file" data-file>
+                    <label for="your-file-importer-id-here" class="bx--file-btn bx--btn bx--btn--primary" role="button" tabindex="0">Add file</label>
+                    <input type="file" class="bx--file-input" id="your-file-importer-id-here" data-file-uploader data-target="[data-file-container]" multiple />
+                    <div data-file-container class="bx--file-container">
+                    </div>
                   </div>
                 </div>
-              </div>
+                  
+                </div>
+              {/* </div> */}
+            
             </Tab>
-            <Tab {...props.tab} label="Develop">
+            <Tab {...props.tab} label="API Education">
               <div className="bx--grid bx--grid--no-gutter bx--grid--full-width">
                 <div className="bx--row landing-page__tab-content">
                   <div className="bx--col-lg-16">
@@ -88,14 +100,23 @@ const LandingPage = () => {
           </Tabs>
         </div>
       </div>
-      <div className="bx--row landing-page__r3">
-        <div className="bx--col-md-4 bx--col-lg-4">
-          <h3 className="landing-page__label">The Principles</h3>
-        </div>
-        <div className="bx--col-md-4 bx--col-lg-4">Carbon is Open</div>
-        <div className="bx--col-md-4 bx--col-lg-4">Carbon is Modular</div>
-        <div className="bx--col-md-4 bx--col-lg-4">Carbon is Consistent</div>
-      </div>
+      <InfoSection heading="The Principles" className="landing-page__r3">
+        <InfoCard
+          heading="API Creation"
+          body="Create your own customized APIs and host on API Explorer with the help of API Education tutorials."
+          icon={<PersonFavorite32 />}
+        />
+        <InfoCard
+          heading="API Management"
+          body="Manage APIs created by you, know the number of users for your API. Manage the APIs subscribed by you."
+          icon={<Application32 />}
+        />
+        <InfoCard
+          heading="API Usage"
+          body="Understand how to subscribe and use an API already available in API Explorer Directory."
+          icon={<Globe32 />}
+        />
+      </InfoSection>
     </div>
   );
 };
